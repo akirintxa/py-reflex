@@ -1,6 +1,10 @@
 from rxconfig import config
 
 import reflex as rx
+from py_reflex.components.navbar import navbar
+from py_reflex.views.header.header import header
+from py_reflex.views.links.links import links
+from py_reflex.components.footer import footer
 
 
 class State(rx.State):
@@ -10,7 +14,13 @@ class State(rx.State):
 
 
 def index() -> rx.Component:
-    return rx.text("Hola Reflex", color="blue")
+    return rx.vstack(
+        navbar(),
+        header(),
+        links(),
+        footer()
+
+    )
 
 
 # Add state and page to the app.
